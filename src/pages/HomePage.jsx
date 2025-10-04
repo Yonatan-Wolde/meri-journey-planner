@@ -6,24 +6,21 @@ import SearchLocation from "../components/SearchLocation";
 function HomePage() {
     return ( 
         <div className="relative">
-            {/* background div */}
-        <div className="w-screen h-screen bg-red-200 absolute top-0 left-0 -z-10">
-            <MapComponent />
-        </div>
+                {/* background div */}
+            <div className="w-screen h-screen bg-red-200 absolute top-0 left-0 -z-10">
+                <MapComponent />
+            </div>
 
-            {/* foreground div */}
-        <div className="h-20">
-            <h1 className="pt-7 pb-6 pl-10 text-xl">Create Route</h1>
-        </div>
-        <SearchLocation />
+                {/* foreground div */}
+            <div className="h-20">
+                <h1 className="pt-7 pb-6 pl-10 text-xl">Create Route</h1>
+            </div>
+            <SearchLocation />
 
 
-        <div className="h-150 bg-gray-300">
 
-        </div>
-
-{/* // Navigation bar */}
-<NavigationBar />      
+    {/* // Navigation bar */}
+    <NavigationBar />      
         </div>
      );
 }
