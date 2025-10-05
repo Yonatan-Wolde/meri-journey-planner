@@ -2,6 +2,7 @@ import { StopCircleIcon } from "@heroicons/react/24/outline";
 import { MapPinIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
 import RouteProperty from "./RouteProperty";
+import LiveNavigation from "./LiveNavigation";
 
 
 
@@ -133,17 +134,17 @@ function SearchLocation() {
 
     return (
         <>
-        <div className="flex flex-col ml-5 mr-5 bg-white rounded-tl-5xl rounded-tr-5xl rounded-bl-5xl rounded-br-5xl">
+        <div className="flex flex-col bg-white rounded-tl-5xl rounded-tr-5xl rounded-bl-5xl rounded-br-5xl">
             
 
 {/* starting location search field div */}
             <div className="relative">
                 <div className="flex h-15">
-                    <StopCircleIcon className="ml-6 mr-5 mt-6 w-5 h-5 flex-shrink-0 rounded-full text-gray-700"/>                   
+                    <StopCircleIcon className="ml-6 mr-5 mt-5 w-6 h-6 flex-shrink-0 rounded-full text-accent"/>                   
                     <input 
                         type="text" 
-                        className="pt-2 mr-10 w-full text-placeholder text-base border-b-1  border-gray-200 focus:outline-none" 
-                        placeholder="Starting Location"
+                        className="pt-1 mr-10 w-full text-primary text-base border-b-1  border-gray-200 focus:outline-none" 
+                        placeholder ="Starting Location"
                         value={startingLocationSearch}
                         onChange={(e)=>{setStartingLocationSearch(e.target.value)}} 
                         onFocus={() => (setShowStartingDropdown(true))}
@@ -153,7 +154,7 @@ function SearchLocation() {
                 
     {/* starting location search result list dropdown visibility */}
                 { showStartingDropdown && (
-                    <div className="absolute top-full w-full flex flex-col bg-white rounded-bl-5xl rounded-br-5xl rounded-tl-5xl rounded-tr-5xl z-10">
+                    <div className="absolute top-full w-full flex flex-col bg-white rounded-5xl z-10">
                         {startingLocationResults.length > 0 ? (
                             startingLocationResults.map((location, index) => (
                                 <div
@@ -180,10 +181,10 @@ function SearchLocation() {
 {/* destination location search field div */}
             <div className="relative">
                 <div className="flex h-15">
-                    <MapPinIcon className="ml-6 mr-5 mt-5 w-5 h-5 flex-shrink-0 rounded-full text-gray-700"/>
+                    <MapPinIcon className="ml-6 mr-5 mt-4 w-6 h-6 flex-shrink-0 rounded-full text-accent"/>
                     <input 
                         type="text" 
-                        className="pt-2 mr-10 w-full text-placeholder text-base border-b-1  border-gray-200 focus:outline-none" 
+                        className="pb-1 mr-10 w-full text-primary text-base border-b-1  border-gray-200 focus:outline-none" 
                         placeholder="Destination Location"
                         value={destinationLocationSearch}
                         onChange={(e)=>{setDestinationLocationSearch(e.target.value)}} 
@@ -194,7 +195,7 @@ function SearchLocation() {
                 
     {/* destination location search result list dropdown visibility */}
                 {showDestinationDropdown && (
-                    <div className="absolute top-full w-full flex flex-col bg-white rounded-bl-5xl rounded-br-5xl rounded-tl-5xl rounded-tr-5xl z-10">
+                    <div className="absolute top-full w-full flex flex-col bg-white rounded-5xl z-10">
                         {destinationLocationResults.length > 0 ? (
                             destinationLocationResults.map((location, index) => (
                                 <div
@@ -220,7 +221,7 @@ function SearchLocation() {
 
 {/* triger route property section/modal */}
 {startingLocation && destinationLocation && (<RouteProperty />) }
-
+<LiveNavigation />
 
         </> 
      );

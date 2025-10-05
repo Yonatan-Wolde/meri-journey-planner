@@ -27,7 +27,7 @@ function MapComponent() {
         // url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
         // light theme 
         // url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"        
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        // attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       />
       
       {/* LINE 23-27: A pin/marker on the map */}

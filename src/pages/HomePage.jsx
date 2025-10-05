@@ -1,5 +1,6 @@
 import MapComponent from "../components/MapComponent";
 import NavigationBar from "../components/NavigationBar";
+import RouteProperty from "../components/RouteProperty";
 import SearchLocation from "../components/SearchLocation";
 
 
@@ -7,7 +8,7 @@ function HomePage() {
     return ( 
         <div className="relative">
                 {/* background div */}
-            <div className="w-screen h-screen bg-red-200 absolute top-0 left-0 -z-10">
+            <div className="fixed inset-0 -z-10">
                 <MapComponent />
             </div>
 
@@ -20,7 +21,8 @@ function HomePage() {
 
 
     {/* // Navigation bar */}
-    <NavigationBar />      
+    <NavigationBar />  
+    <RouteProperty />    
         </div>
      );
 }

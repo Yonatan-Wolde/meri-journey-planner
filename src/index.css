@@ -17,16 +17,36 @@
 
 @theme{
   --radius-5xl: 40px;
-  --color-placeholder: #58595B;
+  --color-primary: #2D3748;
+  --color-secondary: #58595B;
+  --colot-theritiary: #3881C3;
+  --color-fire: #F16465;
+  --color-accent: #D17C28;
   --color-line: #A0AEC0;
-  
+  --color-background: #D17C28;
+
 }
 
 @utility rounded-5xl{
   border-radius: var(--radius-5xl)
 }
-@utility text-placeholder{
-  font-color: var(--color-placeholder)
+@utility text-primary{
+  color: var(--color-primary)
+}
+@utility text-secondary{
+  color: var(--color-secondary)
+}
+@utility text-accent{
+  color: var(--color-accent)
+}
+@utility bg-accent{
+  background-color: var(--color-background)
+}
+@utility bg-theritiary{
+  background-color: var(--colot-theritiary)
+}
+@utility bg-fire{
+  background-color: var(--color-fire)
 }
 @utility bg-lightgray{
   background-color: var(--color-line)
