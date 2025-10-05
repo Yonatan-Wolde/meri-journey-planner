@@ -21,6 +21,8 @@ function SearchLocation() {
     const [destinationLocation, setDestinationLocation] = useState(null);
     const [showDestinationDropdown, setShowDestinationDropdown] = useState(false);
 
+    const[showLiveNavigation, setShowLiveNavigation] = useState(false)
+
     
 
     
@@ -115,29 +117,12 @@ function SearchLocation() {
     }, [destinationLocationSearch])
 
 
-
-
-
-    
-
-
-// console.log(`❌❌❌❌${startingLocation}`)
-// console.log(`❌❌❌❌${destinationLocation}`)
-
-
-
-
-
-
-
-
-
     return (
         <>
         <div className="flex flex-col bg-white rounded-tl-5xl rounded-tr-5xl rounded-bl-5xl rounded-br-5xl">
             
 
-{/* starting location search field div */}
+            {/* starting location search field div */}
             <div className="relative">
                 <div className="flex h-15">
                     <StopCircleIcon className="ml-6 mr-5 mt-5 w-6 h-6 flex-shrink-0 rounded-full text-accent"/>                   
@@ -152,7 +137,7 @@ function SearchLocation() {
                     />
                 </div>
                 
-    {/* starting location search result list dropdown visibility */}
+                {/* starting location search result list dropdown visibility */}
                 { showStartingDropdown && (
                     <div className="absolute top-full w-full flex flex-col bg-white rounded-5xl z-10">
                         {startingLocationResults.length > 0 ? (
@@ -171,14 +156,14 @@ function SearchLocation() {
                                 </div>
                         ))
                             ) : (
-                        <div className="ml-15 leading-16 mr-10 text-placeholder text-base border-b border-gray-200">Type at leaset 3 character</div>
+                        <div className="ml-15 leading-16 mr-10 text-placeholder text-base border-b border-gray-200">No result</div>
                         )}
                     </div>
                 )}
             </div>
 
 
-{/* destination location search field div */}
+            {/* destination location search field div */}
             <div className="relative">
                 <div className="flex h-15">
                     <MapPinIcon className="ml-6 mr-5 mt-4 w-6 h-6 flex-shrink-0 rounded-full text-accent"/>
@@ -193,7 +178,7 @@ function SearchLocation() {
                     />
                 </div>
                 
-    {/* destination location search result list dropdown visibility */}
+                {/* destination location search result list dropdown visibility */}
                 {showDestinationDropdown && (
                     <div className="absolute top-full w-full flex flex-col bg-white rounded-5xl z-10">
                         {destinationLocationResults.length > 0 ? (
@@ -211,7 +196,7 @@ function SearchLocation() {
                                 </div>
                         ))
                             ) : (
-                        <div className="ml-15 leading-16 mr-10 text-placeholder text-base border-b border-gray-200">Type at leaset 3 character</div>
+                        <div className="ml-15 leading-16 mr-10 text-placeholder text-base border-b border-gray-200">No result</div>
                         )}
                     </div>
                 )}
@@ -219,9 +204,12 @@ function SearchLocation() {
         </div>
 
 
-{/* triger route property section/modal */}
-{startingLocation && destinationLocation && (<RouteProperty />) }
-<LiveNavigation />
+        {/* triger route property section/modal */}
+        {startingLocation && destinationLocation && !showLiveNavigation && (
+            <RouteProperty startLiveNavigation={setShowLiveNavigation} />) }
+
+        {/* triger live navigation section/modal */}  
+        {showLiveNavigation && <LiveNavigation />}
 
         </> 
      );

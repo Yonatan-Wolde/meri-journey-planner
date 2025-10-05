@@ -1,6 +1,7 @@
 import { ArrowLeftEndOnRectangleIcon } from "@heroicons/react/24/outline";
 import { ArrowRightEndOnRectangleIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function NavigationBar() {
 
@@ -10,18 +11,24 @@ function NavigationBar() {
 
     return ( 
 <>
-
         {navBarShrinked ? (
-            <div className="h-15 w-12 bg-white mt-5 mb-6 rounded-full flex justify-center items-center fixed bottom-0"
+            <div className="m-5 h-15 w-12 bg-white mt-5 mb-6 rounded-full flex justify-center items-center fixed bottom-0"
                 onClick={() => (setNavBarShrinked(false))}>
             <ArrowRightEndOnRectangleIcon className="w-8 text-gray-800"/>
             </div>) : (
-            <div className="h-15 inset-x-0 mt-5 mb-6 bg-white rounded-full flex justify-center items-center fixed bottom-0">
+            <div className="m-5 h-15 inset-x-0 mt-5 mb-6 bg-white rounded-full flex justify-center items-center fixed bottom-0">
                     <ul className="flex justify-between items-center w-full p-5 text-base font-medium">
-                        <li><a href="">Home</a></li>
-                        <li><a href="">Dashboard</a></li>
-                        <li><a href="">RideLog</a></li>
+                        <li>
+                            <Link to="/">Home</Link>
+                        </li>
+                        <li>
+                            <Link to="/dashboard">Dashboard</Link>
+                        </li>
+                        <li>
+                            <Link to="/ridelog">RideLog</Link>
+                        </li>
                     </ul>
+
                     <button onClick={() => setNavBarShrinked(true)} className="p-4">
                         <ArrowLeftEndOnRectangleIcon className="w-8 text-gray-800" />
                     </button>

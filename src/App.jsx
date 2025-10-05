@@ -1,12 +1,23 @@
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
 import HomePage from "./pages/HomePage";
+import NavigationBar from "./components/NavigationBar";
+import Dashboard from "./components/Dashboard";
+import RideLog from "./components/RideLog";
 
 function App() {
   return ( 
-    <div className="min-h-screen font-pop">
-      <div className="w-full max-w-4xl px-4 rwlative">
-        <HomePage />
-      </div>
-    </div>
+    <Router>
+            {/* // Navigation bar */}      
+            <NavigationBar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/ridelog" element={<RideLog />}/>
+      </Routes>
+
+    </Router>
+
    );
 }
 
