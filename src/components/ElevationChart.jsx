@@ -11,7 +11,7 @@ export default function ElevationChart() {
             <h3 className="font-semibold text-lg mb-2">Elevation Profile</h3>
             <ResponsiveContainer width="100%" height="100%">
                 <LineChart data={elevationData}>
-                    <XAxis dataKey="distance" />
+                    <XAxis dataKey="distance" unit="km"/>
                         {/* label={{ value: 'Distance (km)', position: 'insideBottomRight', offset: -5 }} */}
                     <YAxis />
                     <Tooltip />

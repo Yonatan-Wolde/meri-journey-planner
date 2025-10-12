@@ -3,12 +3,11 @@ import MapDisplay from "../components/MapDisplay";
 import RouteStats from "../components/RouteStats";
 import ElevationChart from "../components/ElevationChart";
 import { useMapStore } from "../store/useMapStore";
-
+import useRouteCalculation from "../hooks/useRouteCalculation";
 
 
 function HomePage() {
-    // const {startPoint, endPoint} = useMapStore();
-    
+    useRouteCalculation();
     
     return ( 
         <>
@@ -22,9 +21,6 @@ function HomePage() {
             </section>
 
             <section>
-                {/* {startPoint !== null && endPoint !== null && (
-                    <RouteStats />
-                )} */}
                 <RouteStats />
                 <ElevationChart />
             </section>

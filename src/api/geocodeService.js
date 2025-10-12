@@ -2,7 +2,7 @@
 export const fetchGeocodeResults = async (searchTerm) => {
     const apiKey = import.meta.env.VITE_ORS_API_KEY;
 
-    const url = `https://api.oopenrouteservice.org/geocode/autocomplete?api_key=${apiKey}&text=${encodeURIComponent(searchTerm)}`;
+    const url = `https://api.openrouteservice.org/geocode/autocomplete?api_key=${apiKey}&text=${encodeURIComponent(searchTerm)}`;
 
     const response = await fetch(url);
 

@@ -1,0 +1,28 @@
+import { useEffect } from "react";
+import { useMapStore } from "../store/useMapStore";
+import { fetchRouteData } from "../api/fetchRouteData";
+import { processRouteData } from "../utils/processRouteData";
+
+export default function useRouteCalculation() {
+  const { startPoint, endPoint, setRouteCoords, setRouteStats, setElevationData } =
+    useMapStore();
+
+  useEffect(() => {
+    if (!startPoint || !endPoint) return;
+
+    async function calculate() {
+      try {
+        const rawData = await fetchRouteData(startPoint, endPoint);
+        const { routeCoords, routeStats, elevationData } = processRouteData(rawData);
+
+        setRouteCoords(routeCoords);
+        setRouteStats(routeStats);
+        setElevationData(elevationData);
+      } catch (err) {
+        console.error("Route calculation failed:", err);
+      }
+    }
+
+    calculate();
+  }, [startPoint, endPoint, setRouteCoords, setRouteStats, setElevationData]);
+}
