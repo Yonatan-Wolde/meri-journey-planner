@@ -12,11 +12,11 @@ function NavigationBar() {
     return ( 
 <>
         {navBarShrinked ? (
-            <div className="m-5 h-15 w-12 bg-white mt-5 mb-6 rounded-full flex justify-center items-center fixed bottom-0"
+            <div className="mr-5 ml-2 h-15 w-12 bg-theritiary mt-5 mb-6 rounded-full flex justify-center items-center fixed bottom-0 shadow-sm"
                 onClick={() => (setNavBarShrinked(false))}>
-            <ArrowRightEndOnRectangleIcon className="w-8 text-gray-800"/>
+            <ArrowRightEndOnRectangleIcon className="w-8 text-gray-800 text-white"/>
             </div>) : (
-            <div className="m-5 h-15 inset-x-0 mt-5 mb-6 bg-white rounded-full flex justify-center items-center fixed bottom-0">
+            <div className="m-5 h-15 inset-x-0 mt-5 mb-6 bg-theritiary text-white rounded-full flex justify-center items-center fixed bottom-0">
                     <ul className="flex justify-between items-center w-full p-5 text-base font-medium">
                         <li>
                             <Link to="/">Home</Link>
@@ -30,7 +30,7 @@ function NavigationBar() {
                     </ul>
 
                     <button onClick={() => setNavBarShrinked(true)} className="p-4">
-                        <ArrowLeftEndOnRectangleIcon className="w-8 text-gray-800" />
+                        <ArrowLeftEndOnRectangleIcon className="w-8 text-gray-800 text-white" />
                     </button>
             </div>
         )}

@@ -1,6 +1,8 @@
-export default function DropdownSuggestions({ data, isLoading, error, onSelect, inputValue  }) {
+import {useMapStore} from '../store/useMapStore';
+export default function DropdownSuggestions({ data, isLoading, error, onSelect, inputValue, onSelectOrigin }) {
 
-    
+    const {startPointApiCoords, endPointApiCoords, setStartPointApiCoords, setEndPointApiCoords} = useMapStore();
+
 return (
     <>
     {data == undefined ? (
@@ -15,9 +17,20 @@ return (
             <li 
                 key={place.properties.id}
                 className="ml-15 leading-16 mr-10 text-placeholder text-base border-b border-gray-200 cursor-pointer"
-                onClick={() => onSelect(place.geometry.coordinates.reverse())}
+                onClick={() => {
+                    const lnglat = place.geometry.coordinates;
+                    const latlng = [...place.geometry.coordinates].reverse();
+
+                    console.log(`leaflet ${latlng}, ${lnglat}`);
+
+                    onSelectOrigin(lnglat);
+                    onSelect(latlng);
+                }}
                 >
                 {place.properties.label}
+                {place.geometry.coordinates}
+{console.log([startPointApiCoords, endPointApiCoords])}
+
             </li>
         ))}
     </ul>

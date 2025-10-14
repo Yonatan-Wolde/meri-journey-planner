@@ -1,6 +1,6 @@
 // src/services/fetchRouteData.js
-export async function fetchRouteData(startPoint, endPoint) {
-  if (!startPoint || !endPoint) throw new Error("Both start and end points are required");
+export async function fetchRouteData(startPointApiCoords, endPointApiCoords) {
+  if (!startPointApiCoords || !endPointApiCoords) throw new Error("Both start and end points are required");
 
   const response = await fetch(
     "https://api.openrouteservice.org/v2/directions/cycling-regular/geojson",
@@ -12,8 +12,8 @@ export async function fetchRouteData(startPoint, endPoint) {
       },
       body: JSON.stringify({
         coordinates: [
-          [startPoint.lng, startPoint.lat],
-          [endPoint.lng, endPoint.lat],
+          startPointApiCoords,
+          endPointApiCoords
         ],
         elevation: true,
       }),
@@ -23,3 +23,5 @@ export async function fetchRouteData(startPoint, endPoint) {
   if (!response.ok) throw new Error("Failed to fetch route data");
   return await response.json();
 }
+
+        // coordinates: [[8.67998,49.39732],[8.68777,49.40211]],

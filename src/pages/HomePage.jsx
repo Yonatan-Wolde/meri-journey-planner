@@ -1,8 +1,6 @@
 import SearchLocation from "../components/SearchLocation";
 import MapDisplay from "../components/MapDisplay";
 import RouteStats from "../components/RouteStats";
-import ElevationChart from "../components/ElevationChart";
-import { useMapStore } from "../store/useMapStore";
 import useRouteCalculation from "../hooks/useRouteCalculation";
 
 
@@ -11,27 +9,24 @@ function HomePage() {
     
     return ( 
         <>
-        <main className="font-pop max-w-4xl px-4">
+        {/* background map */}
+        <div className="fixed inset-0 -z-10">
+            <MapDisplay />
+        </div>
+
+
             <header>
-                <h1 className="pt-7 mb-6 ml-10 text-xl">Create Route</h1>
+                <h1 className="pt-7 mb-6 ml-10 text-xl text-theritiary font-bold sm:block lg:hidden md:hidden">Create Route</h1>
             </header>
 
-            <section>
+            <section className="fixed left-1/2 -translate-x-1/2 w-full max-w-[700px] px-4 z-20 mt-5 lg:mt-25 md:mt-25">
                 <SearchLocation />
             </section>
 
-            <section>
+            <section className="absolute top-1/2 left-0 h-1/2 overflow-y-auto inset-x-0 mx-4 rounded-[40px] lg:top-4/7">
                 <RouteStats />
-                <ElevationChart />
             </section>
 
-            {/* background div */}
-            <div className="fixed inset-0 -z-10">
-                <MapDisplay />
-            </div>
-
-
-        </main>
         </>
      );
 }

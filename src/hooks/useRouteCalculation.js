@@ -4,15 +4,15 @@ import { fetchRouteData } from "../api/fetchRouteData";
 import { processRouteData } from "../utils/processRouteData";
 
 export default function useRouteCalculation() {
-  const { startPoint, endPoint, setRouteCoords, setRouteStats, setElevationData } =
+  const { startPoint, endPoint, startPointApiCoords, endPointApiCoords, setRouteCoords, setRouteStats, setElevationData } =
     useMapStore();
 
   useEffect(() => {
-    if (!startPoint || !endPoint) return;
+    if (!endPointApiCoords || !endPointApiCoords) return;
 
     async function calculate() {
       try {
-        const rawData = await fetchRouteData(startPoint, endPoint);
+        const rawData = await fetchRouteData(startPointApiCoords, endPointApiCoords);
         const { routeCoords, routeStats, elevationData } = processRouteData(rawData);
 
         setRouteCoords(routeCoords);
@@ -24,5 +24,5 @@ export default function useRouteCalculation() {
     }
 
     calculate();
-  }, [startPoint, endPoint, setRouteCoords, setRouteStats, setElevationData]);
+  }, [startPoint, endPoint, startPointApiCoords, endPointApiCoords, setRouteCoords, setRouteStats, setElevationData]);
 }

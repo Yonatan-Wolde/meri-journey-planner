@@ -12,6 +12,7 @@ export default function MapDisplay() {
       <MapContainer
         center={[9.03, 38.74]} // default map center (Addis Ababa)
         zoom={13}
+        zoomControl={false}
         className="w-full h-full"
       >
         {/* 🧩 Base Map Layer (visual tiles) */}
@@ -28,7 +29,7 @@ export default function MapDisplay() {
 
         {/* 🚴 Route Line (only if route coordinates exist) */}
         {routeCoords?.length > 0 && (
-          <Polyline positions={routeCoords} color="blue" weight={4} />
+          <Polyline positions={routeCoords} color="#3B82F6" weight={4} />
         )}
 
         {/* 📍 Markers for start and end points */}
@@ -36,12 +37,12 @@ export default function MapDisplay() {
         {endPoint && <Marker position={endPoint} />}
       </MapContainer>
 
-      {/* 🧾 Optional message overlay if no route yet */}
+      {/* 🧾 Optional message overlay if no route yet
       {(!startPoint || !endPoint) && (
         <div className="absolute inset-0 flex items-center justify-center bg-white/60 text-gray-600 font-medium">
           Set start and end points to view your route
         </div>
-      )}
+      )} */}
     </div>
   );
 }

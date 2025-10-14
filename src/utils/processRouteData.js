@@ -12,7 +12,7 @@ export function processRouteData(data) {
 
     //build elevation points for chart data
     const elevationData = coords.map((coord, index) => ({
-        distance: (index * totalDistance) / coords.length,
+        distance: Math.round((index * totalDistance) / coords.length),
         elevation: coord[2],
     }));
 

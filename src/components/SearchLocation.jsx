@@ -18,14 +18,17 @@ export default function SearchLocation() {
     const {data: destData, isLoading: destLoading, error: destError} = useGeocodeQuery(debouncedDest);
 
     const {setStartPoint, setEndPoint} = useMapStore();
+    const {startPointApiCoords, endPointApiCoords, setStartPointApiCoords, setEndPointApiCoords} = useMapStore();
+    
 
     const [activeInput, setActiveInput] = useState(null);
 
+console.log(startPointApiCoords, endPointApiCoords)
 
     return (
 
         <>
-        <div className="flex flex-col bg-white rounded-tl-5xl rounded-tr-5xl rounded-bl-5xl rounded-br-5xl">
+        <div className="flex flex-col bg-white rounded-5xl">
             {/* starting location search field div */}
             <div className="relative">
                 <div className="flex h-15">
@@ -69,6 +72,7 @@ export default function SearchLocation() {
                     isLoading={activeInput === 'start' ? startLoading : destLoading}
                     error={activeInput === 'start' ? startError : destError}
                     onSelect={(coords) => activeInput === 'start' ? setStartPoint(coords) : setEndPoint(coords)}
+                    onSelectOrigin={(coords) => activeInput === 'start' ? setStartPointApiCoords(coords) : setEndPointApiCoords(coords)}
                 />
             )}
 
