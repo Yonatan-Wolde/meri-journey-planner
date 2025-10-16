@@ -1,7 +1,7 @@
 import {useMapStore} from '../store/useMapStore';
-export default function DropdownSuggestions({ data, isLoading, error, onSelect, inputValue, onSelectOrigin }) {
+export default function DropdownSuggestions({ data, isLoading, error, onSelect, inputValue, onSelectOrigin, locationName }) {
 
-    const {startPointApiCoords, endPointApiCoords, setStartPointApiCoords, setEndPointApiCoords} = useMapStore();
+    const {startPointApiCoords, endPointApiCoords, setStartPointApiCoords, setEndPointApiCoords, setStartPointLocationName} = useMapStore();
 
 return (
     <>
@@ -25,12 +25,11 @@ return (
 
                     onSelectOrigin(lnglat);
                     onSelect(latlng);
+
+                    locationName(place.properties.name);
                 }}
                 >
                 {place.properties.label}
-                {place.geometry.coordinates}
-{console.log([startPointApiCoords, endPointApiCoords])}
-
             </li>
         ))}
     </ul>

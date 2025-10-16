@@ -2,10 +2,13 @@ import SearchLocation from "../components/SearchLocation";
 import MapDisplay from "../components/MapDisplay";
 import RouteStats from "../components/RouteStats";
 import useRouteCalculation from "../hooks/useRouteCalculation";
+import { useMapStore } from "../store/useMapStore";
+import LiveNavigation from "../components/LiveNavigation";
 
 
 function HomePage() {
     useRouteCalculation();
+    const {startLiveNavigation} = useMapStore();
     
     return ( 
         <>
@@ -23,8 +26,8 @@ function HomePage() {
                 <SearchLocation />
             </section>
 
-            <section className="absolute top-1/2 left-0 h-1/2 overflow-y-auto inset-x-0 mx-4 rounded-[40px] lg:top-4/7">
-                <RouteStats />
+            <section className="absolute top-2/3 left-0 overflow-y-auto inset-x-0 inset-y-0 mx-4 rounded-[40px] lg:top-3/5">
+                {startLiveNavigation ? (<LiveNavigation />) : (<RouteStats />)}
             </section>
 
         </>

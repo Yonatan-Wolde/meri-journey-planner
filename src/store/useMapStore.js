@@ -8,6 +8,10 @@ export const useMapStore = create((set) => ({
     routeCoords: [],
     routeStats: null,
     elevationData: null,
+    startLiveNavigation: false,
+
+    startPointLocationName: '',
+    endPointLocationName: '',
 
     setStartPoint: (point) => set({ startPoint: point }),
     setEndPoint: (point) => set({ endPoint: point }),
@@ -16,14 +20,9 @@ export const useMapStore = create((set) => ({
     setRouteCoords: (coords) => set({ routeCoords: coords }),
     setRouteStats: (stats) => set({ routeStats: stats }),
     setElevationData: (data) => set({ elevationData: data }),
+    setStartLiveNavigation: (status) => set({ startLiveNavigation: status}),
+
+    setStartPointLocationName: (name) => set({ startPointLocationName: name }),
+    setEndPointLocationName: (name) => set({ endPointLocationName: name }),
 }));  
 
-function consol() {
-    console.log(startPointApiCoords, endPointApiCoords)
-
-    return ( 
-        pae
-     );
-}
-
-export default consol;

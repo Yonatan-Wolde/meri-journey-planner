@@ -17,7 +17,7 @@ export default function SearchLocation() {
     const {data: startData, isLoading: startLoading, error: startError} = useGeocodeQuery(debouncedStart);
     const {data: destData, isLoading: destLoading, error: destError} = useGeocodeQuery(debouncedDest);
 
-    const {setStartPoint, setEndPoint} = useMapStore();
+    const {setStartPoint, setEndPoint, startPointLocationName, endPointLocationName, setStartPointLocationName, setEndPointLocationName} = useMapStore();
     const {startPointApiCoords, endPointApiCoords, setStartPointApiCoords, setEndPointApiCoords} = useMapStore();
     
 
@@ -36,7 +36,7 @@ console.log(startPointApiCoords, endPointApiCoords)
                 <input
                     type="text"
                     className="pt-1 mr-10 w-full placeholder-gray-400 text-primary text-base border-b-1  border-gray-200 focus:outline-none"
-                    value={startInput}
+                    value={startPointLocationName? startPointLocationName : startInput}
                     onChange={(e) => setStartInput(e.target.value)}
                     onFocus={() => setActiveInput('start')}
                     onBlur={() => setTimeout(() => (setActiveInput(null)), 100)}                
@@ -54,7 +54,7 @@ console.log(startPointApiCoords, endPointApiCoords)
                     <input
                         type="text"
                         className="pt-1 mr-10 w-full placeholder-gray-400 text-primary text-base border-b-1  border-gray-200 focus:outline-none"
-                        value={destInput}
+                        value={endPointLocationName? endPointLocationName : destInput}
                         onChange={(e) => setDestInput(e.target.value)}
                         onFocus={() => setActiveInput('dest')}
                         onBlur={() => setTimeout(() => (setActiveInput(null)), 100)}  
@@ -73,9 +73,9 @@ console.log(startPointApiCoords, endPointApiCoords)
                     error={activeInput === 'start' ? startError : destError}
                     onSelect={(coords) => activeInput === 'start' ? setStartPoint(coords) : setEndPoint(coords)}
                     onSelectOrigin={(coords) => activeInput === 'start' ? setStartPointApiCoords(coords) : setEndPointApiCoords(coords)}
+                    locationName={(name) => activeInput === 'start' ? setStartPointLocationName(name) : setEndPointLocationName(name)}
                 />
             )}
-
         </div>
         </>
         

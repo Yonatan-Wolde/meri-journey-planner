@@ -20,7 +20,7 @@ function Weather() {
                                 <div className="text-secondary">Temperature</div><div className="font-medium">25 c</div>
                             </div>
                             <div className="flex justify-between pt-5">
-                                <div className="text-secondary">Wind</div><div className="font-medium">15 km/h</div>
+                                <div className="text-secondary">Wind Speed</div><div className="font-medium">15 km/h</div>
                             </div>
                             <div className="flex justify-between pt-5">
                                 <div className="text-secondary">Precipitation</div><div className="font-medium">10%</div>
