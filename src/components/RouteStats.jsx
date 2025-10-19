@@ -6,17 +6,17 @@ import ElevationChart from './ElevationChart';
 import Weather from './Weather';
 
 function RouteStats() {
-    const { routeStats, startPointApiCoords, endPointApiCoords, setStartLiveNavigation} = useMapStore();
-    // if (!routeStats) return null;
-
+    const { routeStats, setStartLiveNavigation} = useMapStore();
+  
 
     return (
         <div className="relative">
-            <div className="absolute inset-x-0 pb-6 ">
+            <div className="absolute inset-x-0 pb-6 lg:p-3 overflow-y-auto flex-col justify-center">
                 
             {/* //route button  */}
-            {startPointApiCoords && endPointApiCoords ? (
-                <button className="flex h-15 inset-x-0 bg-theritiary mb-0 mt-3 rounded-5xl"
+            {routeStats ? (
+                <button className="flex h-15 inset-x-0 bg-theritiary mb-0 mt-3 rounded-5xl shadow-lg 
+                                    hover:scale-104 transition-all duration-300"
                         onClick={() => (setStartLiveNavigation(true))}
                 >
                     <RocketLaunchIcon className="ml-6 mr-5 mt-5 w-5 h-5 flex-shrink-0 text-white"/> 
@@ -31,15 +31,21 @@ function RouteStats() {
                 >
 
                             {/* //route detail  */}
+                            <div className='hover:scale-105 transition-all duration-300'>
                                 <RouteSummary />
+                            </div>
 
 
                             {/* // route elevation */}
+                            <div className='hover:scale-105 transition-all duration-300'>
                                 <ElevationChart />
+                            </div>
 
 
                             {/* //weather  */}
+                            <div className='hover:scale-105 transition-all duration-300'>
                                 <Weather />
+                            </div>
                 </div>
             </div>
         </div>

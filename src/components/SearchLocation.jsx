@@ -28,7 +28,8 @@ console.log(startPointApiCoords, endPointApiCoords)
     return (
 
         <>
-        <div className="flex flex-col bg-white rounded-5xl">
+        <div className="flex flex-col bg-white rounded-5xl shadow-lg
+                        hover:scale-105 transition-all duration-300">
             {/* starting location search field div */}
             <div className="relative">
                 <div className="flex h-15">

@@ -7,9 +7,9 @@ function RouteSummary() {
     if (!routeStats) return null;
 
     return (
-        <div className=" inset-x-0 pb-6 ">
+        <div className=" inset-x-0 pb-6">
             {/* //route detail  */}
-                    <div className="inset-x-0 bg-white mb-0 mt-3 rounded-5xl lg:min-w-[400px] md:min-w-[350px] lg:inset-y-0">
+                    <div className="inset-x-0 bg-white mb-0 mt-3 rounded-5xl lg:min-w-[400px] md:min-w-[350px] lg:inset-y-0 shadow-lg">
                         <div className="flex h-15">
                             <CheckCircleIcon className="ml-6 mr-5 mt-6 w-5 h-5 flex-shrink-0 rounded-full text-transparent bg-accent"/>        
                             <div className="pt-5 mr-10 w-full text-xl text-primary font-medium">Route Summary</div> 

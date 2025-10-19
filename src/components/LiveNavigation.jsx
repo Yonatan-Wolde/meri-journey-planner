@@ -3,7 +3,7 @@ import { PauseIcon, StopIcon } from "@heroicons/react/24/outline";
 function LiveNavigation() {
     return ( 
         <div className="relative">
-<div className="absolute inset-x-0">
+<div className="absolute inset-x-0 lg:top-20 top-30 shadow-lg">
 {/* //route detail  */}
         <div className="inset-x-0 flex bg-white mb-0 mt-3 p-6 pt-0 rounded-5xl justify-between max-w-2xl mx-auto">
             <div className="flex flex-col justify-end items-center pt-5">

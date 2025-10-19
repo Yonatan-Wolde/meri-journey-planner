@@ -18,15 +18,17 @@ function HomePage() {
         </div>
 
 
-            <header>
+            <header >
                 <h1 className="pt-7 mb-6 ml-10 text-xl text-theritiary font-bold sm:block lg:hidden md:hidden">Create Route</h1>
             </header>
 
-            <section className="fixed left-1/2 -translate-x-1/2 w-full max-w-[700px] px-4 z-20 mt-5 lg:mt-25 md:mt-25">
+            <section className="fixed left-1/2 -translate-x-1/2 w-full max-w-[700px] px-4 z-20 mt-5 lg:mt-25 md:mt-25 
+                                hover:pt-10 transition-all duration-300"
+            >
                 <SearchLocation />
             </section>
 
-            <section className="absolute top-2/3 left-0 overflow-y-auto inset-x-0 inset-y-0 mx-4 rounded-[40px] lg:top-3/5">
+            <section className="absolute top-3/5 left-0 overflow-y-auto inset-x-0 inset-y-0 mx-4 rounded-[40px] lg:top-5/9">
                 {startLiveNavigation ? (<LiveNavigation />) : (<RouteStats />)}
             </section>
 

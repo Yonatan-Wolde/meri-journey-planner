@@ -16,7 +16,8 @@ return (
         {data?.map((place) => (
             <li 
                 key={place.properties.id}
-                className="ml-15 leading-16 mr-10 text-placeholder text-base border-b border-gray-200 cursor-pointer"
+                className="ml-15 leading-16 mr-10 text-placeholder text-base border-b border-gray-200 cursor-pointer
+                            hover:scale-105 transition-all ease-in-out duration-300 hover:font-medium"
                 onClick={() => {
                     const lnglat = place.geometry.coordinates;
                     const latlng = [...place.geometry.coordinates].reverse();
