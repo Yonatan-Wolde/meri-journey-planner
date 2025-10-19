@@ -72,16 +72,19 @@ cd meri-journey-planner
 # Install dependencies
 npm install
 
+```
 
+---
 
-Create a .env file at the root of the project and add your OpenRouteService API key from # Install https://account.heigit.org/login:
+# Create a .env file at the root of the project and add your OpenRouteService API key from (https://account.heigit.org/login)
 VITE_ORS_API_KEY=your_api_key_here
 
-
-Start the development server:
+```bash
+# Start the development server:
 npm run dev
 
-Open http://localhost:5173 in your browser.
+# Open http://localhost:5173 in your browser.
+```
 
 ---
 
