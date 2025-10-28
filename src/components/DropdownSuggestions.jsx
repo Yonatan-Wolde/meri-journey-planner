@@ -12,7 +12,7 @@ return (
         {error && inputValue.length >= 3 && <p className="p-2 text-red-400">Error fetching results</p>}
     </div>) :
 
-    (<ul className="flex flex-col bg-white rounded-5xl z-100 overflow-y-auto">
+    (<ul className="flex flex-col bg-white rounded-5xl z-100 overflow-y-auto max-h-[70vh] shadow-lg">
         {data?.map((place) => (
             <li 
                 key={place.properties.id}
@@ -30,7 +30,13 @@ return (
                     locationName(place.properties.name);
                 }}
                 >
-                {place.properties.label}
+                    <p className='pt-2 pb-2 leading-loose'>
+                {place.properties.name}
+                    <span className='font-light text-gray-500'>
+                 {place.properties.locality ? `, ${place.properties.locality}` : ''}
+                {place.properties.country ? `, ${place.properties.country}` : ''}
+                    </span>
+                    </p>
             </li>
         ))}
     </ul>

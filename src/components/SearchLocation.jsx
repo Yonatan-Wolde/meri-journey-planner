@@ -5,6 +5,7 @@ import useDebounce from "../hooks/useDebounce";
 import { StopCircleIcon } from "@heroicons/react/24/outline";
 import { MapPinIcon } from "@heroicons/react/24/outline";
 import DropdownSuggestions from "./DropdownSuggestions";
+import { XMarkIcon } from "@heroicons/react/24/outline";
 
 
 export default function SearchLocation() {
@@ -36,13 +37,15 @@ console.log(startPointApiCoords, endPointApiCoords)
                     <StopCircleIcon className="ml-6 mr-5 mt-5 w-6 h-6 flex-shrink-0 rounded-full text-accent"/>              
                 <input
                     type="text"
-                    className="pt-1 mr-10 w-full placeholder-gray-400 text-primary text-base border-b-1  border-gray-200 focus:outline-none"
+                    className={`${startInput ? 'mr-0' : 'mr-10'} pt-1 w-full placeholder-gray-400 text-primary text-base border-b-1  border-gray-200 focus:outline-none`}
                     value={startPointLocationName? startPointLocationName : startInput}
                     onChange={(e) => setStartInput(e.target.value)}
                     onFocus={() => setActiveInput('start')}
                     onBlur={() => setTimeout(() => (setActiveInput(null)), 100)}                
                     placeholder="Enter Starting location..."
                     />
+                {startInput ? (<button onClick={()=>(setStartInput(''),setStartPointLocationName(''))}><XMarkIcon className="ml-6 mr-5 mt-1 w-6 h-6 flex-shrink-0 rounded-full text-accent"/></button>) : '' }
+
                 </div>
             </div>
 
@@ -52,15 +55,17 @@ console.log(startPointApiCoords, endPointApiCoords)
                 { activeInput !== 'start' && (
                 <div className="flex h-15">
                     <MapPinIcon className="ml-6 mr-5 mt-4 w-6 h-6 flex-shrink-0 rounded-full text-accent"/>
-                    <input
-                        type="text"
-                        className="pt-1 mr-10 w-full placeholder-gray-400 text-primary text-base border-b-1  border-gray-200 focus:outline-none"
-                        value={endPointLocationName? endPointLocationName : destInput}
-                        onChange={(e) => setDestInput(e.target.value)}
-                        onFocus={() => setActiveInput('dest')}
-                        onBlur={() => setTimeout(() => (setActiveInput(null)), 100)}  
-                        placeholder="Destination location"
-                    />
+                <input
+                    type="text"
+                    className={`${destInput ? 'mr-0' : 'mr-10'} pt-1 w-full placeholder-gray-400 text-primary text-base border-b-1  border-gray-200 focus:outline-none`}
+                    value={endPointLocationName? endPointLocationName : destInput}
+                    onChange={(e) => setDestInput(e.target.value)}
+                    onFocus={() => setActiveInput('dest')}
+                    onBlur={() => setTimeout(() => (setActiveInput(null)), 100)}  
+                    placeholder="Destination location"
+                />
+                {destInput ? (<button onClick={()=>(setDestInput(''),setEndPointLocationName(''))}><XMarkIcon className="ml-6 mr-5 mt-1 w-6 h-6 flex-shrink-0 rounded-full text-accent"/></button>) : '' }
+
                 </div>
                 )}
             </div>    
